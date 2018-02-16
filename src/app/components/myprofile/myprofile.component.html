@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="jumbotron min-width">
+
+    <!--Clan image content-->
+    <div class="d-flex justify-content-end">
+      <span *ngIf="user.clan">
+        <img [src]="user.photoURL" width="72" height="72">
+      </span>
+      <span *ngIf="!user.clan">
+        <img src="../../../assets/images/clan-logo-defaukt.png" width="72" height="72">
+      </span>
+      <p class="text-center">clan name</p>
+    </div>
+
+    <!--Profile image-->
+    <div class="text-center">
+      <div *ngIf="user.photoURL === ''">
+        <img src="../../../assets/images/default-avatar.png" class="rounded" alt="...">
+      </div>
+      <div *ngIf="user.photoURL !== ''">
+        <img [src]="user.photoURL" class="rounded" alt="...">
+      </div>
+    </div>
+    <br>
+    <h4 class="text-center">{{user.username}}</h4>
+    <hr class="my-4">
+    <p class="lead">
+      {{user.firstname}} {{user.lastname}}
+    </p>
+    <div class="row">
+      <div class="col-8">
+        <p>clan name</p>
+      </div>
+      <div class="col-4">
+
+      </div>
+    </div>
+    <p class="col-4"></p>
+    <p>Country:</p>
+  </div>
+</div>

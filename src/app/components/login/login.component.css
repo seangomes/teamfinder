@@ -1,0 +1,7 @@
+.submitBtn {
+  width: 100%;
+}
+
+.input-group-text.fixedWidth {
+  min-width: 50px;
+}

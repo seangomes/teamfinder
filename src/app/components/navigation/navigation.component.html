@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">T E A M Finder</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="isLoggedIn">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a routerLink="/home" class="nav-link" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/findteam" class="nav-link" routerLinkActive="active">Find team</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/network" class="nav-link" routerLinkActive="active">Network</a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/myprofile" class="nav-link" routerLinkActive="active">Profile</a>
+        </li>
+    </ul>
+    <button class="btn btn-primary" (click)="signout()">Sign out <i class="fas fa-sign-out-alt"></i></button>
+  </div>
+</nav>

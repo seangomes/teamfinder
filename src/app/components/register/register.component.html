@@ -1,0 +1,144 @@
+<!--Return message-->
+<div class="row" *ngIf="message">
+  <div class="col-md-4 mx-auto">
+    <div class="alert alert-danger" role="alert">
+      {{message}}
+    </div>
+  </div>
+</div>
+
+<!--Create user form-->
+<div class="row">
+  <div class="card text-center full-width">
+    <div class="card-header">
+      Create your new user today!!
+    </div>
+    <div class="card-body">
+      <form novalidate (ngSubmit)="createUser(registerForm)" [formGroup]="registerForm">
+        <div class="row">
+          <section class="col-6">
+            <!--Username field-->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text fixedWidth">
+                    <i class="fas fa-user-circle"></i>
+                  </span>
+                </div>
+                <input type="text" name="username" placeholder="Username" formControlName="username" class="form-control">
+                <div class="input-group-append">
+                  <span class="input-group-text redstar">*</span>
+                </div>
+              </div>
+            </div>
+            <!--Email field-->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text fixedWidth">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </div>
+                <input type="email" name="email" placeholder="Your email address" formControlName="email" class="form-control">
+                <div class="input-group-append">
+                  <span class="input-group-text redstar">*</span>
+                </div>
+              </div>
+            </div>
+            <!--Password field-->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text fixedWidth">
+                    <i class="fas fa-key"></i>
+                  </span>
+                </div>
+                <input type="password" name="password" placeholder="Password" formControlName="password" class="form-control">
+                <div class="input-group-append">
+                  <span class="input-group-text redstar">*</span>
+                </div>
+              </div>
+            </div>
+            <!--Confirm password field-->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text fixedWidth">
+                    <i class="fas fa-key"></i>
+                  </span>
+                </div>
+                <input type="password" name="confirmpassword" placeholder="Confirm Password" formControlName="confpassword" class="form-control">
+                <div class="input-group-append">
+                  <span class="input-group-text redstar">*</span>
+                </div>
+              </div>
+            </div>
+            <!--Country field-->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text fixedWidth">
+                    <i class="fas fa-flag"></i>
+                  </span>
+                </div>
+                <select class="form-control">
+                  <option *ngFor="let country of countries">{{country.name}}</option>
+                </select>
+              </div>
+            </div>
+            <!--First & lastname field-->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text fixedWidth">
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                </div>
+                <input type="text" name="firstname" placeholder="Firstname" formControlName="firstname" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text fixedWidth">
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                </div>
+                <input type="text" name="lastname" placeholder="Lastname" formControlName="lastname" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text fixedWidth">
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                </div>
+                <input type="text" name="age" placeholder="Age" formControlName="age" class="form-control">
+              </div>
+            </div>
+          </section>
+          <!--Image upload-->
+          <section class="col-md-6">
+            <div class="text-center" *ngIf="imagePreview">
+              <img [src]="imagePreview" height="300" width="300" class="rounded" alt="...">
+            </div>
+            <div class="text-center" *ngIf="!imagePreview">
+              <img src="../../../assets/images/default-avatar.png" height="300" width="300" class="rounded" alt="...">
+            </div>
+            <div class="text-center space">
+              <input type="file" id="photoURL" (change)="onFileChange($event)" #fileInput>
+            </div>
+            <button type="button" class="btn btn-danger" *ngIf="imagePreview" (click)="clearFile()">clear image</button>
+            <div class="col-md-12 space">
+            <button type="submit" class="btn btn-success submitBtn" [disabled]="registerForm.invalid">Create user</button>
+          </div>
+          </section>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+</div>

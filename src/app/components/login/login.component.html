@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+      <h1 class="text-center">Login</h1>
+    </div>
+  </div>
+  <br>
+
+<!--Return message-->
+<div class="row" *ngIf="message">
+    <div class="col-md-4 mx-auto">
+        <div class="alert alert-danger" role="alert">
+            {{message}}
+          </div>
+    </div>
+</div>
+
+<!--Login form-->
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <form novalidate (ngSubmit)="login(loginForm)" [formGroup]="loginForm">
+      <!--Email Field-->
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text fixedWidth">
+                <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+          <input type="email" name="email" placeholder="Your email address" formControlName="email" class="form-control">
+        </div>
+      </div>
+
+      <!--Password Field-->
+      <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text fixedWidth">
+            <i class="fa fa-lock"></i>
+          </span>
+        </div>
+        <input type="password" name="password" placeholder="Your password" formControlName="password" class="form-control">
+      </div>
+      <small id="passwordHelp" class="form-text text-muted">Minumum 6 chars or more</small>
+      <a routerLink="/register" routerLinkActive="active">Register new user</a>
+    </div>
+      <button type="submit" class="btn btn-success submitBtn" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
+</div>
