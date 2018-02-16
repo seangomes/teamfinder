@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from "../../../models/User";
+import { User } from "../User";
 import { AuthService } from '../../../providers/auth/auth.service';
+import { UserService } from "../user.service";
 import { Country } from '../../../models/Country';
 
 @Component({
@@ -22,7 +23,7 @@ export class UserRegisterComponent implements OnInit {
     {countryId : "3", name: "France"}
   ]
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private userService: UserService) {
 
     let loggedIn = localStorage.getItem('loggedIn');
     if (loggedIn === '') {
@@ -68,6 +69,10 @@ export class UserRegisterComponent implements OnInit {
 
   clearFile() {
     this.imagePreview = null;
+  }
+
+  createUser({value, valid} : {value: User, valid: boolean}) {
+    this.userService.createUser(value);
   }
 
 }

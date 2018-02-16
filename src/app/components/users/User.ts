@@ -10,4 +10,5 @@ export class User {
   clanId?: string;
   country: string;
   age?:number;
+  createdAt:number;
 }

@@ -1,0 +1,17 @@
+.photoURL {
+    width:150px;
+    height:150px;
+    margin-top: 20px;
+}
+
+.padding-right {
+    padding-right: 10px;
+}
+
+.online {
+    color:green;
+}
+
+.offline {
+    color:red;
+}

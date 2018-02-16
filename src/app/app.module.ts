@@ -40,6 +40,7 @@ const appRoutes: Routes = [
   { path: 'network', component: NetworkComponent },
   { path: 'findteam', component: FindteamComponent },
   { path: 'myprofile', component: MyprofileComponent },
+  { path: 'users', component: UserListComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -60,7 +61,6 @@ var config = {
     NavigationComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
     PageNotFoundComponent,
     FindteamComponent,
     NetworkComponent,
