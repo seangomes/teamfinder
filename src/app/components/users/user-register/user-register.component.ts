@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from "../User";
 import { AuthService } from '../../../providers/auth/auth.service';
@@ -40,7 +40,7 @@ export class UserRegisterComponent implements OnInit {
   createRegisterForm() {
     //Validator login form model
     this.registerForm = this.fb.group({
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       username: ['', [Validators.required],  Validators.minLength(2)],
       password: ['', [Validators.required, Validators.minLength(5)]],
       confpassword: ['', [Validators.required, Validators.minLength(5)]],
@@ -72,7 +72,11 @@ export class UserRegisterComponent implements OnInit {
   }
 
   createUser({value, valid} : {value: User, valid: boolean}) {
-    this.userService.createUser(value);
+    this.userService.createUser(value).then(function(data) {
+      this.message = data;
+    });
   }
+
+
 
 }

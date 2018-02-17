@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from "../user.service";
 import { Observable } from '@firebase/util/dist/esm/src/subscribe';
-import { ISubscription } 
+import { ISubscription } from "rxjs/Subscription";
 import { User } from "../User";
 import { Subscription } from 'rxjs';
 

@@ -18,7 +18,10 @@ export class AuthService {
     status: "online",
     firstname: "Sean",
     lastname: "Gomes",
-    country: "Denmark"
+    country: "Denmark",
+    age:32,
+    clanId: "",
+    createdAt: 1
   }
 
   private userSubject: BehaviorSubject<User> = new BehaviorSubject<User>(new User);
@@ -57,7 +60,11 @@ export class AuthService {
         username: this.user.username,
         firstname: this.user.firstname,
         lastname: this.user.lastname,
-        country: this.user.country
+        country: this.user.country,
+        age: this.user.age,
+        clanId: this.user.clanId,
+        createdAt: this.user.createdAt,
+        password: this.user.password
       }
 
       this.isLoggedInSubject.next(true);
